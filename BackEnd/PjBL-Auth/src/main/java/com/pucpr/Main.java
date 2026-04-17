@@ -3,11 +3,16 @@ import com.pucpr.handlers.AuthHandler;
 import com.pucpr.repository.UsuarioRepository;
 import com.pucpr.service.JwtService;
 import com.sun.net.httpserver.HttpServer;
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
 public class Main {
     public static  void main(String[] args) throws IOException {
+
+
+
 
         // Estamos instanciando as classes manualmente para que vocês percebam como
         // o AuthHandler depende do Repository e do Service para funcionar.
