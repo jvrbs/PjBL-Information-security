@@ -1,4 +1,4 @@
-﻿package com.pucpr.repository;
+package com.pucpr.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pucpr.model.Usuario;
@@ -11,13 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class UsuarioRepository {
+
     private final String FILE_PATH = "usuarios.json";
     private final ObjectMapper mapper = new ObjectMapper();
 
-
     public Optional<Usuario> findByEmail(String email) {
-        List<Usuario> usuarios = findAll();
-        return usuarios.stream()
+        return findAll().stream()
                 .filter(u -> u.getEmail().equalsIgnoreCase(email))
                 .findFirst();
     }
@@ -25,35 +24,33 @@ public class UsuarioRepository {
     public List<Usuario> findAll() {
         File file = new File(FILE_PATH);
 
-        if (!file.exists()){
+        if (!file.exists()) {
             return new ArrayList<>();
         }
 
         try {
-            return mapper.readValue(file, new TypeReference<List<Usuario>>(){});
+            return mapper.readValue(file, new TypeReference<List<Usuario>>() {});
         } catch (IOException e) {
+            // erro de leitura -> retorna vazio
             return new ArrayList<>();
         }
-
-
     }
 
     public void save(Usuario usuario) throws IOException {
         List<Usuario> usuarios = findAll();
 
+        // evita email duplicado
         boolean emailJaExiste = usuarios.stream()
                 .anyMatch(u -> u.getEmail().equalsIgnoreCase(usuario.getEmail()));
 
-        if (emailJaExiste){
+        if (emailJaExiste) {
             throw new IllegalArgumentException("E-mail já cadastrado.");
         }
 
         usuarios.add(usuario);
 
-        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_PATH), usuarios);
-
-
+        // sobrescreve arquivo com lista atualizada
+        mapper.writerWithDefaultPrettyPrinter()
+                .writeValue(new File(FILE_PATH), usuarios);
     }
-
-
 }

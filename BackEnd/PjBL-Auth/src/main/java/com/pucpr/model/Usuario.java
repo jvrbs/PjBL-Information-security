@@ -5,10 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.UUID;
 
-/**
- * Representa a entidade de usuário no sistema.
- * Esta classe é compatível com a biblioteca Jackson para persistência em JSON.
- */
+// entidade de usuário
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Usuario {
 
@@ -16,24 +13,24 @@ public class Usuario {
     private String nome;
     private String email;
 
-    // Nomeamos como senhaHash para reforçar o conceito de segurança
+    // senha armazenada como hash
     @JsonProperty("senhaHash")
     private String senhaHash;
 
-    private String role; // Ex: "PACIENTE", "MEDICO", "ADMIN"
+    private String role; // ex: PACIENTE, MEDICO, ADMIN
 
-    // Construtor padrão necessário para o Jackson
+    // necessário para o Jackson
     public Usuario() {}
 
     public Usuario(String nome, String email, String senhaHash, String role) {
-        this.id = UUID.randomUUID().toString(); // Gera um ID único automaticamente
+        this.id = UUID.randomUUID().toString(); // gera id automaticamente
         this.nome = nome;
         this.email = email;
         this.senhaHash = senhaHash;
         this.role = role;
     }
 
-    // --- Getters e Setters ---
+    // getters e setters
 
     public String getId() {
         return id;
@@ -59,10 +56,6 @@ public class Usuario {
         this.email = email;
     }
 
-    /**
-     * IMPORTANTE: Nunca retorne a senha em texto claro.
-     * O campo armazena apenas o hash (BCrypt).
-     */
     public String getSenhaHash() {
         return senhaHash;
     }

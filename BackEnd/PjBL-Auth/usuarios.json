@@ -1,0 +1,31 @@
+[ {
+  "id" : "ede8360e-2213-473f-b74a-97f152843641",
+  "nome" : "João Silva",
+  "email" : "joao@example.com",
+  "role" : "PACIENTE",
+  "senhaHash" : "$2a$12$7LL6K2dSsmXYr2Cw4NyA.uTvAkSkx6LHjhHroj5k9eC.9QQdXbOJy"
+}, {
+  "id" : "90aaefdd-66e7-442d-a641-86bede149ba8",
+  "nome" : "João TESTE",
+  "email" : "joao@gmail.com",
+  "role" : "PACIENTE",
+  "senhaHash" : "$2a$12$TEhn38ddyABM86wDVTuUBeAdgKgx2P2uoGNCYu/HzBsYU6WTb1Eqa"
+}, {
+  "id" : "3fbd7667-2c64-4d66-99bd-3309f291ed72",
+  "nome" : "João Silva",
+  "email" : "testeclaude@example.com",
+  "role" : "PACIENTE",
+  "senhaHash" : "$2a$12$lKeJ3cYkBN11cRX051TVy.Hb1u2ziXWQS/RrtPRiaQODUMied5JhG"
+}, {
+  "id" : "8882cb92-736d-4338-b1cf-a58a679b58db",
+  "nome" : "João TESTE",
+  "email" : "teste@gmail.com",
+  "role" : "PACIENTE",
+  "senhaHash" : "$2a$12$OFuClLPGWETYrxLf3TdBIeuj5oIyPDvi7vRrmbQNmTl1vQxHbIXpC"
+}, {
+  "id" : "e88a47c3-272b-4d30-8c7f-7c50a2da4058",
+  "nome" : "teste123",
+  "email" : "teste123@gmail.com",
+  "role" : "PACIENTE",
+  "senhaHash" : "$2a$12$.P3AHjnRrvaIYHVdGpCx8uEtTTurrLRVb0pBosmyF3kSQE99r2AD6"
+} ]
